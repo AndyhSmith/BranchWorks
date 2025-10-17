@@ -1,0 +1,48 @@
+// index.html
+
+<html>
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body onload="onload()">
+
+    <!-- <div class="slidecontainer">
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        
+        <p>Value: <span id="demo"></span></p>
+    </div> -->
+    <div id="container">
+        <b>Functions</b> <br>
+        <button onclick="genNewTree()">Generate Tree</button><br>
+        <input type="range" id="size" name="size" min="2" max="20" oninput="sliderDepth()"><br>
+        <label for="size">Size:</label><span id="settingTreeDepth">13</span><br>
+
+        <br>
+        <b>Rendering</b> <br>
+        <input type="checkbox" checked="checked" id="checkbox1" class="css-checkbox" onclick="checkBoxShowLeaves()"> 
+        <label for="checkbox1" name="checkbox2_lbl" class="css-label lite-cyan-check">Show Leaves</label><br>
+
+        <input type="checkbox" checked="checked" id="checkbox2" class="css-checkbox" onclick="checkBoxAnimate()"> 
+        <label for="checkbox2" name="checkbox2_lbl" class="css-label lite-cyan-check">Animate</label><br>
+
+        <input type="checkbox" checked="checked" id="checkbox3" class="css-checkbox" onclick="checkBoxTrunkThickness()"> 
+        <label for="checkbox3" name="checkbox3_lbl" class="css-label lite-cyan-check">Trunk Thickness</label><br>
+
+        <input type="checkbox" checked="checked" id="checkbox4" class="css-checkbox" onclick="checkBoxConnectedTrunk()"> 
+        <label for="checkbox4" name="checkbox4_lbl" class="css-label lite-cyan-check">Connected Trunk</label><br>
+
+        <br>
+        <b>Seasons</b> <br>
+        <button onclick="checkBoxSeasonFall()">Fall</button><br>
+        <button onclick="checkBoxSeasonSummer()">Summer</button><br>
+    </div>
+
+    <div id="stats">
+       FPS: <span id="fps">223</span>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <script src="stickman.js"></script>
+</body>
+</html>

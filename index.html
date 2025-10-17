@@ -1,46 +1,104 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Config-Driven Trees</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
 </head>
 <body onload="onload()">
-
-    <!-- <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-        
-        <p>Value: <span id="demo"></span></p>
-    </div> -->
-    <div id="container">
-        <b>Functions</b> <br>
-        <button onclick="genNewTree()">Generate Tree</button><br>
-        <input type="range" id="size" name="size" min="2" max="20" oninput="sliderDepth()"><br>
-        <label for="size">Size:</label><span id="settingTreeDepth">13</span><br>
-
-        <br>
-        <b>Rendering</b> <br>
-        <input type="checkbox" checked="checked" id="checkbox1" class="css-checkbox" onclick="checkBoxShowLeaves()"> 
-        <label for="checkbox1" name="checkbox2_lbl" class="css-label lite-cyan-check">Show Leaves</label><br>
-
-        <input type="checkbox" checked="checked" id="checkbox2" class="css-checkbox" onclick="checkBoxAnimate()"> 
-        <label for="checkbox2" name="checkbox2_lbl" class="css-label lite-cyan-check">Animate</label><br>
-
-        <input type="checkbox" checked="checked" id="checkbox3" class="css-checkbox" onclick="checkBoxTrunkThickness()"> 
-        <label for="checkbox3" name="checkbox3_lbl" class="css-label lite-cyan-check">Trunk Thickness</label><br>
-
-        <input type="checkbox" checked="checked" id="checkbox4" class="css-checkbox" onclick="checkBoxConnectedTrunk()"> 
-        <label for="checkbox4" name="checkbox4_lbl" class="css-label lite-cyan-check">Connected Trunk</label><br>
-
-        <br>
-        <b>Seasons</b> <br>
-        <button onclick="checkBoxSeasonFall()">Fall</button><br>
-        <button onclick="checkBoxSeasonSummer()">Summer</button><br>
+  <!-- Settings panel (top-right, compact, minimizable) -->
+  <div id="container">
+    <div id="panelHeader">
+      <span>Settings</span>
+      <!-- Visible glyph; toggles to ▲ / ▼ -->
+      <button id="togglePanel" aria-label="Minimize settings" title="Minimize/Expand">▼</button>
     </div>
 
-    <div id="stats">
-       FPS: <span id="fps">223</span>
-    </div>
+    <div id="panelBody">
+      <!-- <h3>Functions</h3> -->
+      <div class="row">
+        <button id="btnGen">Generate Tree</button>
+      </div>
 
-    <canvas id="canvas"></canvas>
-    <script src="stickman.js"></script>
+      <h3>Size</h3>
+      <div class="field">
+        <input type="range" id="size" name="size" min="2" max="20" />
+        <div class="hint">Depth: <span id="settingTreeDepth">13</span></div>
+      </div>
+
+      <h3>Grass</h3>
+      <div class="field">
+        <input type="range" id="bladeCount" name="bladeCount" min="40" max="2000" step="10" />
+        <label for="bladeCount">Blades: <span id="bladeCountVal">—</span></label>
+      </div>
+
+      <h3>Rendering</h3>
+      <div class="controlGroup">
+        <label class="control">
+          <input type="checkbox" id="checkbox1" checked />
+          <span>Show Leaves</span>
+        </label>
+        <label class="control">
+          <input type="checkbox" id="checkbox2" checked />
+          <span>Animate</span>
+        </label>
+        <label class="control">
+          <input type="checkbox" id="checkbox3" checked />
+          <span>Trunk Thickness</span>
+        </label>
+        <label class="control">
+          <input type="checkbox" id="checkbox4" checked />
+          <span>Connected Trunk</span>
+        </label>
+      </div>
+
+      <div id="dynamic-ui"></div>
+    </div>
+  </div>
+
+  <!-- Stats in bottom-right so it doesn't clash with settings -->
+  <div id="stats">
+    FPS: <span id="fps">0</span>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script src="tree.js"></script>
+
+  <!-- Robust, immediate toggle init (works without reload) -->
+  <script>
+    (function initWhenReady(fn) {
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fn, { once: true });
+      } else {
+        fn();
+      }
+    })(function () {
+      var container = document.getElementById('container');
+      var toggleBtn = document.getElementById('togglePanel');
+
+      function setState(collapsed) {
+        container.classList.toggle('collapsed', collapsed);
+        toggleBtn.textContent = collapsed ? '▲' : '▼'; // caret style
+        toggleBtn.setAttribute('aria-expanded', String(!collapsed));
+        toggleBtn.title = collapsed ? 'Expand' : 'Minimize';
+      }
+
+      // Restore previous state (optional)
+      try { setState(localStorage.getItem('panelCollapsed') === '1'); } catch (e) {}
+
+      // Immediate toggle on click
+      toggleBtn.addEventListener('click', function () {
+        var nowCollapsed = !container.classList.contains('collapsed');
+        setState(nowCollapsed);
+        try { localStorage.setItem('panelCollapsed', nowCollapsed ? '1' : '0'); } catch (e) {}
+      });
+    });
+  </script>
 </body>
 </html>
