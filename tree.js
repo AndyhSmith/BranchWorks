@@ -8,7 +8,7 @@ const CONFIG = {
     "original": {
       "label": "Original",
       "seasons": {
-        "spring": { "label": "Summer", "leafImage": "images/branch.png", "trunkColor": "#4b4a33", "leafScale": 0.60, "anchor": { "x": 0.5, "y": 0.95 } },
+        "spring": { "label": "Summer", "leafImage": "images/branch.png", "trunkColor": "#4b4a33", "leafScale": 0.60, "anchor": { "x": 0.48, "y": 0.9 } },
         "fall":   { "label": "Fall",   "leafImage": "images/branch2.png", "trunkColor": "#80461b", "leafScale": 0.60, "anchor": { "x": 0.48, "y": 0.95 } }
       }
     },
@@ -17,27 +17,25 @@ const CONFIG = {
       "seasons": {
         "spring": { "label": "Spring", "leafImage": "images/oak_spring.png", "trunkColor": "#3f5d2a", "leafScale": 0.60, "anchor": { "x": 0.5, "y": 0.95 } },
         "summer": { "label": "Summer", "leafImage": "images/oak_summer.png", "trunkColor": "#4b4a33", "leafScale": 0.60, "anchor": { "x": 0.5, "y": 0.95 } },
-        "fall":   { "label": "Fall",   "leafImage": "images/oak_fall.png",   "trunkColor": "#80461b", "leafScale": 0.62, "anchor": { "x": 0.5, "y": 0.95 } },
-        "winter": { "label": "Winter", "leafImage": "images/oak_winter.png", "trunkColor": "#5a534a", "leafScale": 0.55, "anchor": { "x": 0.5, "y": 0.90 } }
+        "fall":   { "label": "Fall",   "leafImage": "images/oak_fall.png",   "trunkColor": "#80461b", "leafScale": 0.62, "anchor": { "x": 0.5, "y": 0.9 } },
+        "winter": { "label": "Winter", "leafImage": "images/oak_winter.png", "trunkColor": "#5a534a", "leafScale": 0.55, "anchor": { "x": 0.48, "y": 0.90 } }
       }
     },
     "maple": {
       "label": "Maple",
       "seasons": {
-        "spring": { "label": "Spring", "leafImage": "images/maple_spring.png", "trunkColor": "#3a5f2b", "leafScale": 0.58, "anchor": { "x": 0.5, "y": 0.95 } },
-        "summer": { "label": "Summer", "leafImage": "images/maple_summer.png", "trunkColor": "#3f3a2b", "leafScale": 0.58, "anchor": { "x": 0.5, "y": 0.95 } },
-        "fall":   { "label": "Fall",   "leafImage": "images/maple_fall.png",   "trunkColor": "#6e3a1b", "leafScale": 0.64, "anchor": { "x": 0.5, "y": 0.95 } },
-        "winter": { "label": "Winter", "leafImage": "images/maple_winter.png", "trunkColor": "#5a534a", "leafScale": 0.52, "anchor": { "x": 0.5, "y": 0.95 } },
-        "rainy":  { "label": "Rainy",  "leafImage": "images/maple_rainy.png",  "trunkColor": "#2b4f3a", "leafScale": 0.58, "anchor": { "x": 0.5, "y": 0.95 } }
-      }
+        "spring": { "label": "Spring", "leafImage": "images/maple_spring.png", "trunkColor": "#3a5f2b", "leafScale": 0.58, "anchor": { "x": 0.49, "y": 0.95 } },
+        "summer": { "label": "Summer", "leafImage": "images/maple_summer.png", "trunkColor": "#3f3a2b", "leafScale": 0.58, "anchor": { "x": 0.49, "y": 0.95 } },
+        "fall":   { "label": "Fall",   "leafImage": "images/maple_fall.png",   "trunkColor": "#6e3a1b", "leafScale": 0.64, "anchor": { "x": 0.49, "y": 0.95 } },
+        "winter": { "label": "Winter", "leafImage": "images/maple_winter.png", "trunkColor": "#5a534a", "leafScale": 0.52, "anchor": { "x": 0.49, "y": 0.95 } },      }
     },
     "birch": {
       "label": "Birch",
       "seasons": {
-        "spring": { "label": "Spring", "leafImage": "images/birch_spring.png", "trunkColor": "#5b6b50", "leafScale": 0.56, "anchor": { "x": 0.5, "y": 0.95 } },
-        "summer": { "label": "Summer", "leafImage": "images/birch_summer.png", "trunkColor": "#6b5e52", "leafScale": 0.56, "anchor": { "x": 0.5, "y": 0.95 } },
+        "spring": { "label": "Spring", "leafImage": "images/birch_spring.png", "trunkColor": "#5b6b50", "leafScale": 0.56, "anchor": { "x": 0.5, "y": 0.9 } },
+        "summer": { "label": "Summer", "leafImage": "images/birch_summer.png", "trunkColor": "#6b5e52", "leafScale": 0.56, "anchor": { "x": 0.48, "y": 0.95 } },
         "fall":   { "label": "Fall",   "leafImage": "images/birch_fall.png",   "trunkColor": "#7a5a3a", "leafScale": 0.60, "anchor": { "x": 0.5, "y": 0.95 } },
-        "winter": { "label": "Winter", "leafImage": "images/birch_winter.png", "trunkColor": "#7c746a", "leafScale": 0.50, "anchor": { "x": 0.5, "y": 0.95 } },
+        "winter": { "label": "Winter", "leafImage": "images/birch_winter.png", "trunkColor": "#7c746a", "leafScale": 0.50, "anchor": { "x": 0.48, "y": 0.9 } },
       }
     },
     "pine": {
@@ -49,9 +47,9 @@ const CONFIG = {
     "cherry": {
       "label": "Cherry",
       "seasons": {
-        "spring": { "label": "Spring (Blossom)", "leafImage": "images/cherry_spring.png", "trunkColor": "#5a3a3a", "leafScale": 0.62, "anchor": { "x": 0.5, "y": 0.95 } },
+        "spring": { "label": "Spring (Blossom)", "leafImage": "images/cherry_spring.png", "trunkColor": "#5a3a3a", "leafScale": 0.62, "anchor": { "x": 0.48, "y": 0.95 } },
         "fall":   { "label": "Fall",             "leafImage": "images/cherry_fall.png",   "trunkColor": "#6a432e", "leafScale": 0.62, "anchor": { "x": 0.5, "y": 0.95 } },
-        "winter": { "label": "Winter",           "leafImage": "images/cherry_winter.png", "trunkColor": "#5c4d46", "leafScale": 0.54, "anchor": { "x": 0.5, "y": 0.95 } },
+        "winter": { "label": "Winter",           "leafImage": "images/cherry_winter.png", "trunkColor": "#5c4d46", "leafScale": 0.54, "anchor": { "x": 0.52, "y": 0.95 } },
       }
     },
   }
