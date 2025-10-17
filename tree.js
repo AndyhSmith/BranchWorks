@@ -1,6 +1,6 @@
 // tree.js
 
-/***** 1) CONFIG (Edit this only) *********************************************/
+/***** 1) CONFIG  *********************************************/
 const CONFIG = {
   defaultTree: "original",
   defaultSeason: "fall",
@@ -430,9 +430,9 @@ function genNewTree() {
   tree = createTree(toRadians(180), 20, settingTreeDepth, true);
   BRANCH_LENGTH = (window.innerHeight / (20 * Math.pow(settingTreeDepth, 2)));
 
-  // (Re)build ground and pin tree base once
+  // build ground and pin tree base once
   generateGround();
-  treeY = groundEdgeY(treeX) - 2; // fixed from now on
+  treeY = groundEdgeY(treeX) - 2; 
 }
 
 let d = new Date();
@@ -489,6 +489,6 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   generateGround();
-  treeY = groundEdgeY(treeX) - 2; // still fixed
+  treeY = groundEdgeY(treeX) - 2; 
   BRANCH_LENGTH = (window.innerHeight / (20 * Math.pow(settingTreeDepth, 2)));
 });
